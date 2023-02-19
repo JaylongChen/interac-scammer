@@ -25,12 +25,13 @@ while(True):
     answers = ''.join(random.choice(str(letters)) for i in range(20))
 
     # fill out form
-    driver.find_element(By.NAME, "wpforms[fields][0]").send_keys(str(word_list[index]))
+    driver.find_element(By.NAME, "wpforms[fields][0]").send_keys(str(word_list[index])[2:-1])
     index = random.randint(0, len(word_list) - 1)
     driver.find_element(By.NAME, "wpforms[fields][3]").send_keys(str(num))
     index = random.randint(0, len(word_list) - 1)
-    driver.find_element(By.NAME, "wpforms[fields][4]").send_keys(str(word_list[index]))
-    driver.find_element(By.NAME, "wpforms[fields][5]").send_keys(question)
+    driver.find_element(By.NAME, "wpforms[fields][4]").send_keys(str(word_list[index])[2:-1])
+    index = random.randint(0, len(word_list) - 1)
+    driver.find_element(By.NAME, "wpforms[fields][5]").send_keys(str(word_list[index][2:-1]))
     driver.find_element(By.NAME, "wpforms[fields][6]").send_keys(answers)
 
     # click button
@@ -48,4 +49,5 @@ while(True):
     # driver.find_element(By.NAME, "wpforms[fields][4]").clear()
     # driver.find_element(By.NAME, "wpforms[fields][5]").clear()
     # driver.find_element(By.NAME, "wpforms[fields][6]").clear()
+    time.sleep(4)
     driver.get(url)
