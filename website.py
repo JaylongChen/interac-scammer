@@ -15,6 +15,9 @@ word_list = response.content.splitlines()
 url = "https://confirm-my-interac.com/en"
 question = 'password?'
 
+# session = requests.Session()
+# session.proxies = {}
+
 driver = webdriver.Firefox()
 driver.get(url)
 
